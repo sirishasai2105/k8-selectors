@@ -1,33 +1,4 @@
-# kind: Pod
-# apiVersion: v1
-# metadata:
-#   name: pod-1
-#   labels:
-#     purpose: affinity
-# spec:
-#   containers:
-#   - name: nginx
-#     image: nginx:stable-perl
-# ---
-# kind: Pod
-# apiVersion: v1
-# metadata:
-#   name: pod-2
-# spec:
-#   containers:
-#   - name: nginx
-#     image: nginx
-#   affinity:
-#     podAffinity:
-#       requiredDuringSchedulingIgnoredDuringExecution:
-#       - labelSelector:
-#           matchExpressions:
-#           - key: purpose
-#             operator: In
-#             values:
-#             - affinity
-#         topologyKey: topology.kubernetes.io/zone
-
+#-------GETTING ERROR------------
 apiVersion: v1
 kind: Pod
 metadata:
