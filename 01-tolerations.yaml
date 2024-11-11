@@ -8,6 +8,9 @@ spec:
   containers:
   - name: nginx
     image: nginx
+  nodeSelector:
+    hardware: gpu
+  # we cannot guarantee that by using tolerations pod will go to that node only
   tolerations:
   - key: "hardware"
     operator: "Equal"
