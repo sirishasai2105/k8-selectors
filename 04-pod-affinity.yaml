@@ -16,7 +16,6 @@ metadata:
   name: pod-2
   labels:
     name: pod-2
-    purpose: affinity
 spec:
   containers:
   - name: nginx
