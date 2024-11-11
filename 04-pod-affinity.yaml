@@ -1,0 +1,34 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-1
+  labels:
+    name: pod-1
+    purpose: affinity
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+---
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-2
+  labels:
+    name: pod-2
+    purpose: affinity
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  affinity:
+    podAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+          - key: purpose
+            operator: In
+            values:
+            - affinity
+        topologyKey: topology.kubernetes.io/zone
+
