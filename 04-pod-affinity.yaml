@@ -7,16 +7,32 @@ metadata:
 spec:
   containers:
   - name: nginx
-    image: nginx
+    image: nginx:stable-perl
 ---
-kind: Pod
+# kind: Pod
+# apiVersion: v1
+# metadata:
+#   name: pod-2
+# spec:
+#   containers:
+#   - name: nginx
+#     image: nginx
+#   affinity:
+#     podAffinity:
+#       requiredDuringSchedulingIgnoredDuringExecution:
+#       - labelSelector:
+#           matchExpressions:
+#           - key: purpose
+#             operator: In
+#             values:
+#             - affinity
+#         topologyKey: topology.kubernetes.io/zone
+
 apiVersion: v1
+kind: Pod
 metadata:
   name: pod-2
 spec:
-  containers:
-  - name: nginx
-    image: nginx
   affinity:
     podAffinity:
       requiredDuringSchedulingIgnoredDuringExecution:
@@ -27,4 +43,8 @@ spec:
             values:
             - affinity
         topologyKey: topology.kubernetes.io/zone
+  containers:
+  # docker run -d --name nginx nginx
+  - name: nginx
+    image: nginx:stable-perl
 
