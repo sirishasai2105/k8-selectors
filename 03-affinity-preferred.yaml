@@ -16,11 +16,6 @@ spec:
             values:
             - another-node-label-value
   containers:
-    name: nginx
+  - name: nginx
     image: nginx
-  tolerations:
-  - key: "hardware"
-    operator: "Equal"
-    value: "gpu"
-    effect: "NoSchedule"
 
